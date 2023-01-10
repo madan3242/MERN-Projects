@@ -1,5 +1,11 @@
 import express from "express";
-import { createProduct, deleteProduct, getAllProducts, getSingleProduct, updateProduct } from "../controllers/productController.js";
+import { 
+    createProduct, 
+    deleteProduct, 
+    getAllProducts, 
+    getSingleProduct, 
+    updateProduct 
+} from "../controllers/productController.js";
 const router = express.Router();
 
 /*
@@ -9,7 +15,7 @@ const router = express.Router();
     Fields: name, image, price, qty, info
 */
 
-router.post('/products').route(createProduct);
+router.route('/products').post(createProduct);
 
 /*
     USAGE: Get all Products
@@ -18,7 +24,7 @@ router.post('/products').route(createProduct);
     Fields: no-fields
 */
 
-router.get('/products').route(getAllProducts);
+router.route('/products').get(getAllProducts);
 
 /*
 USAGE: Get single Products
@@ -27,7 +33,7 @@ Method: GET
 Fields: no-fields
 */
 
-router.get('/products/:id').route(getSingleProduct);
+router.route('/products/:id').get(getSingleProduct);
 
 /*
     USAGE: Update Product
@@ -36,7 +42,7 @@ router.get('/products/:id').route(getSingleProduct);
     Fields: name, image, price, qty, info
 */
 
-router.put('/products/:id').route(updateProduct);
+router.route('/products/:id').put(updateProduct);
 
 /*
     USAGE: Delete Product
@@ -45,6 +51,6 @@ router.put('/products/:id').route(updateProduct);
     Fields: no-fields
 */
 
-router.delete('/products/:id').route(deleteProduct);
+router.route('/products/:id').delete(deleteProduct);
 
 export default router;
