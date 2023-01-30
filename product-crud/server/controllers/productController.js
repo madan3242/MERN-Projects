@@ -9,7 +9,7 @@ export const createProduct = async (req, res) => {
             qty: req.body.qty,
             info: req.body.info,
         }
-        //Prodcut exists or not
+        //Product exists or not
         let product = await Product.findOne({name: newProduct.name});
         if(product){
             return res.status(401).json({

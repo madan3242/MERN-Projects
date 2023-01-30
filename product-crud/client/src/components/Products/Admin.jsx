@@ -35,7 +35,7 @@ const Admin = () => {
             {
                 products.length > 0 ? <>
                     <table className="table table-striped">
-                        <thead className="thread-dark bg-dark text-white">
+                        <thead className="thead-dark bg-dark text-white">
                             <tr>
                                 <th>Name</th>
                                 <th>Image</th>

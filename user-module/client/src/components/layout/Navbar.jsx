@@ -11,7 +11,7 @@ const Navbar = () => {
         return state.userData;
     });
 
-    let { loading, isAuthinticated, user} = userInfo;
+    let { loading, isAuthenticated, user} = userInfo;
 
     let logoutHandler = () => {
         dispatch(logoutAction(navigate));
@@ -23,7 +23,7 @@ const Navbar = () => {
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ml-auto">
                 { !loading &&<>{
-                    !isAuthinticated ? <>
+                    !isAuthenticated ? <>
                         <li className="nav-item">
                             <Link className="nav-link" to="/users/login">Login</Link>
                         </li>
