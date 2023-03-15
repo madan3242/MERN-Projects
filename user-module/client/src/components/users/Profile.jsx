@@ -1,6 +1,12 @@
 import React, { Fragment } from 'react'
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
+    let userInfo = useSelector((state) => {
+        return state.userData;
+    });
+
+    let { user} = userInfo;
   return (<Fragment>
     <section className="p-3 bg-warning">
         <div className="container">
@@ -29,8 +35,8 @@ const Profile = () => {
                     </div>
                     <div className="card-body">
                         <ul className="list-group">
-                            <li className="list-group-item">Name:</li>
-                            <li className="list-group-item">Email:</li>
+                            <li className="list-group-item">Name: {user.name}</li>
+                            <li className="list-group-item">Email: {user.email}</li>
                             <li className="list-group-item">Phone Number:</li>
                         </ul>
                     </div>

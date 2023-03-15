@@ -19,7 +19,7 @@ const USER_LOGOUT = "USER_LOGOUT";
 let getLogin = (user, navigate) => {
     return async (dispatch) => {
         try {
-            dispatch({ type: LOGIN_REQUEST});
+            dispatch({ type: LOGIN_REQUEST });
             let config = {
                 headers: {
                     "content-type": "application/json",
@@ -33,6 +33,11 @@ let getLogin = (user, navigate) => {
             dispatch({ type: LOGIN_SUCCESS, payload: response.data });
 
             dispatch(setAlert("Login Success", "success"));
+
+            if (localStorage.token) {
+                dispatch(getUserInfo());
+            }
+
             navigate("/");
         } catch (error) {
             dispatch({ type: LOGIN_FAILURE, payload: error });
@@ -61,9 +66,6 @@ let getRegistration = (user, navigate) => {
             //setAlert Action will invoke
             dispatch(setAlert("Registration Success", "success"));
 
-            if (localStorage.token) {
-                dispatch(getUserInfo());
-            }
             navigate("/users/login");
         } catch (error) {
             dispatch({ type: REG_USER_FAILURE, payload: error });
@@ -74,7 +76,7 @@ let getRegistration = (user, navigate) => {
 let logoutAction = (navigate) => {
     return (dispatch) => {
         dispatch({ type: USER_LOGOUT });
-        navigate(`/`);
+        navigate(`/users/login`);
     }
 }
 

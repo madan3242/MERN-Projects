@@ -70,7 +70,7 @@ export const deleteRoom = async (req, res, next) => {
 
 export const getSingleRoom = async (req, res, next) => {
     try {
-        const room = await room.findById(req.params.id);
+        const room = await Room.findById(req.params.id);
         res.status(200).json(room);
     } catch (error) {
         next(error);
