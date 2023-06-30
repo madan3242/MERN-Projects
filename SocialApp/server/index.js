@@ -60,6 +60,7 @@ app.use('/posts', postRoutes);
 // Mongoose setup 
 const PORT = process.env.PORT || 6000;
 
+mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true

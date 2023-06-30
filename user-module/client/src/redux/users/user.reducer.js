@@ -90,6 +90,7 @@ let userReducer = (state = initialState, action) => {
                 loading: false,
                 errorMessage:payload,
                 user: null,
+                isAuthenticated: false,
             };
         default:
             return state;
